@@ -175,7 +175,7 @@ List<int[]> arr = new ArrayList<>();
 Collections.sort(arr, (a, b) -> Integer.compare(a[1], b[1]));  // Sorts list of arrays based on the second element
 ```
 
-```
+
 ### Basic Data Structures
 
 #### Arrays
