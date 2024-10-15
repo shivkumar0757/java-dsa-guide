@@ -156,4 +156,214 @@ Collections.sort(students, Comparator.comparing(Student::getGrade)
 
 
 
+### Methods and Imports
+
+- **Methods:**
+
+```java
+public int calculateSum(int a, int b) {  // Define a method to calculate sum
+    return a + b;
+}
+
+// Lambda functions: Small anonymous functions defined with lambda expressions
+// Example: (parameters) -> expression
+BiFunction<Integer, Integer, Integer> multiply = (x, y) -> x * y;  // Multiplies two numbers
+int result = multiply.apply(2, 3);  // result is 6
+
+// Example: Lambda function for quick sorting
+List<int[]> arr = new ArrayList<>();
+Collections.sort(arr, (a, b) -> Integer.compare(a[1], b[1]));  // Sorts list of arrays based on the second element
+```
+
+```
+### Basic Data Structures
+
+#### Arrays
+
+In Java, arrays are a fixed-size, index-based data structure that holds elements of the same type.
+
+- **Initialization:**
+
+```java
+// Initialize an array with a fixed size
+int[] myArray = new int[5];  // Array of size 5, elements default to 0
+
+// Initialize an array with elements
+int[] myArrayWithElements = {1, 2, 3, 4, 5};  // Array initialized with values
+```
+
+- **Common Operations:**
+
+```java
+// Access elements by index
+int firstElement = myArrayWithElements[0];  // O(1)
+
+// Modify an element
+myArrayWithElements[1] = 10;  // O(1)
+
+// Iterate over an array
+for (int element : myArrayWithElements) {
+    System.out.println(element);  // O(n)
+}
+
+// Get array length
+int length = myArrayWithElements.length;  // O(1)
+```
+
+#### Array Pros and Cons:
+- **Pros**:
+  - Constant-time access via index (O(1)).
+  - Low memory overhead since it's a fixed-size structure.
+  
+- **Cons**:
+  - Fixed size; resizing requires creating a new array and copying elements (O(n)).
+  - Insertion and deletion (except at the end) are O(n) due to shifting.
+
+---
+
+#### Lists (Java equivalent: `ArrayList` and `LinkedList`)
+
+After arrays, Java offers flexible, dynamic data structures like `ArrayList` and `LinkedList`, which are part of the Java Collections Framework.
+
+- **Java List Interface Hierarchy**:
+
+```mermaid
+classDiagram
+    List <|-- ArrayList
+    List <|-- LinkedList
+    List <|-- Vector
+    ArrayList : +void add()
+    ArrayList : +void get()
+    LinkedList : +void addFirst()
+    LinkedList : +void getLast()
+    Vector : +void add()
+    Vector : +void remove()
+```
+
+
+#### ArrayList (Dynamic Arrays)
+
+`ArrayList` is a resizable array that allows dynamic resizing.
+
+- **Initialization:**
+
+```java
+// Initialize an empty ArrayList
+List<Integer> arrayList = new ArrayList<>();
+
+// Initialize with elements
+List<Integer> arrayListWithElements = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+```
+
+- **Common Operations:**
+
+```java
+// Add an element at the end
+arrayList.add(6);  // O(1) amortized
+
+// Insert an element at a specific index
+arrayList.add(2, 10);  // O(n), due to shifting
+
+// Remove an element
+arrayList.remove(Integer.valueOf(10));  // O(n), due to shifting
+
+// Access an element by index
+int element = arrayList.get(1);  // O(1)
+
+// Iterate over an ArrayList
+for (int element : arrayList) {
+    System.out.println(element);  // O(n)
+}
+```
+
+- **Pros**:
+  - Dynamic resizing.
+  - Constant-time access (O(1)).
+
+- **Cons**:
+  - Insertion/removal at the middle or beginning involves shifting (O(n)).
+  - Higher memory usage due to dynamic resizing.
+
+---
+
+#### LinkedList (Doubly Linked List)
+
+`LinkedList` is a doubly linked list that allows fast insertion and deletion at both ends.
+
+- **Initialization:**
+
+```java
+// Initialize an empty LinkedList
+List<Integer> linkedList = new LinkedList<>();
+
+// Initialize with elements
+List<Integer> linkedListWithElements = new LinkedList<>(Arrays.asList(1, 2, 3, 4, 5));
+```
+
+- **Common Operations:**
+
+```java
+// Add an element at the end
+linkedList.add(6);  // O(1)
+
+// Add an element at the start
+linkedList.addFirst(0);  // O(1)
+
+// Remove an element
+linkedList.remove(Integer.valueOf(3));  // O(n)
+
+// Access an element by index
+int element = linkedList.get(2);  // O(n), since traversal is required
+
+// Iterate over a LinkedList
+for (int element : linkedList) {
+    System.out.println(element);  // O(n)
+}
+```
+
+- **Pros**:
+  - Efficient insertions and deletions at both ends (O(1)).
+  - No need for resizing like `ArrayList`.
+
+- **Cons**:
+  - O(n) access time for elements.
+  - Higher memory usage due to node pointers.
+
+---
+
+#### Vector
+
+`Vector` is similar to `ArrayList` but is synchronized, meaning it's thread-safe.
+
+- **Initialization:**
+
+```java
+Vector<Integer> vector = new Vector<>();
+```
+
+- **Common Operations:**
+
+```java
+// Add an element
+vector.add(6);  // O(1)
+
+// Remove an element
+vector.remove(Integer.valueOf(2));  // O(n)
+
+// Access an element by index
+int element = vector.get(1);  // O(1)
+```
+
+- **Pros**:
+  - Synchronized (thread-safe).
+
+- **Cons**:
+  - Slower due to synchronization.
+  - Similar performance characteristics as `ArrayList`.
+
+```
+
+
+
+
 
